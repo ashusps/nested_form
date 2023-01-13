@@ -1,0 +1,10 @@
+<%= form_for @project do |form| %>
+  <%= form.text_field :name %>
+  <%= link_to_add_nested(form, :tasks, '#tasks') %> 
+  <div id='tasks'>
+    <%= form.fields_for :tasks do |task_f| %>
+      <%= render 'task_fields', form: task_f %>
+    <% end %>
+  </div>
+  <%= form.submit 'Submit' %> 
+<% end %>
